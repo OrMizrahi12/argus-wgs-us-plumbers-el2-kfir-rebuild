@@ -62,6 +62,40 @@
       box-shadow: 0 14px 38px rgba(70, 44, 10, 0.08);
     }
     .boundary-rail strong { font-weight: 700; }
+    .boundary-cue {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(86, 52, 10, 0.12);
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255, 241, 225, 0.96));
+      color: var(--boundary-ink);
+      box-shadow: 0 18px 36px rgba(74, 48, 12, 0.08);
+      max-width: 34rem;
+    }
+    .boundary-cue span {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .boundary-cue strong {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .boundary-cue .icon { color: color-mix(in srgb, var(--boundary-ink) 84%, white); }
+    .boundary-cue-magazine-stagger { border-radius: 999px; background: rgba(255,255,255,0.88); }
+    .boundary-cue-dispatch-console { background: rgba(255, 241, 223, 0.14); border-color: rgba(255,255,255,0.12); color: #ffe8c5; box-shadow: none; }
+    .boundary-cue-dispatch-console .icon { color: #ffe8c5; }
+    .boundary-cue-proof-board { background: linear-gradient(135deg, rgba(255,249,238,0.97), rgba(255,233,203,0.94)); transform: rotate(-1.2deg); }
+    .boundary-cue-coverage-grid { max-width: none; width: 100%; justify-content: space-between; }
+    .boundary-cue-stacked-feature { background: linear-gradient(135deg, rgba(255,255,255,0.86), rgba(246,250,255,0.92)); }
+    .console-boundary { padding: 16px 16px 0; }
+    .console-boundary .boundary-cue { max-width: none; margin-bottom: 0; }
     .hero {
       position: relative;
       display: grid;
@@ -72,6 +106,61 @@
     }
     .hero-copy { grid-column: span 6; }
     .hero-copy.wide { grid-column: span 7; }
+    .hero-context, .console-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hero-magazine .hero-stack,
+    .hero-console .hero-copy,
+    .hero-stacked-feature .hero-copy {
+      padding: 24px;
+      border-radius: 32px;
+      background: linear-gradient(160deg, color-mix(in srgb, var(--panel) 88%, black), color-mix(in srgb, var(--panel-alt) 92%, black));
+      box-shadow: 0 30px 70px rgba(7, 13, 22, 0.2);
+    }
+    .hero-magazine .hero-context,
+    .hero-console .console-kicker,
+    .hero-proof-board .hero-context,
+    .hero-stacked-feature .stacked-meta > span:first-child { color: var(--accent); }
+    .hero-magazine h1,
+    .hero-console h1,
+    .hero-proof-board .signal-column h1,
+    .hero-stacked-feature h1 { color: white; }
+    .hero-magazine .hero-subtitle,
+    .hero-console .hero-subtitle,
+    .hero-proof-board .hero-subtitle,
+    .hero-stacked-feature .hero-subtitle { color: rgba(255,255,255,0.82); }
+    .hero-magazine .hero-subtitle { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.84); }
+    .hero-console .signal-chip,
+    .hero-proof-board .signal-chip,
+    .hero-stacked-feature .signal-column .signal-chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.08); }
+    .hero-console .signal-chip strong,
+    .hero-proof-board .signal-chip strong,
+    .hero-stacked-feature .signal-column .signal-chip strong { color: white; }
+    .hero-console .signal-label,
+    .hero-proof-board .signal-label,
+    .hero-stacked-feature .signal-column .signal-label { color: rgba(143, 212, 255, 0.88); }
+    .hero-proof-board .signal-column {
+      background: linear-gradient(180deg, rgba(10, 21, 34, 0.98), rgba(20, 39, 57, 0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+    }
+    .hero-proof-board .hero-actions .btn,
+    .hero-console .hero-actions .btn,
+    .hero-stacked-feature .stacked-call-chip .btn { box-shadow: none; }
+    .stacked-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .stacked-call-chip { display: inline-flex; }
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -235,23 +324,7 @@
     .final-card h2, .final-card p, .final-card .section-kicker { color: white; }
     .final-card p { color: rgba(255,255,255,0.82); max-width: 58ch; }
     .boundary-note { margin-top: 16px; padding: 14px 16px; border-radius: 18px; background: rgba(255,224,184,0.12); border: 1px solid rgba(255,224,184,0.16); color: #ffe4c0; line-height: 1.55; }
-    .sticky-cta {
-      position: fixed;
-      left: max(14px, env(safe-area-inset-left));
-      right: max(14px, env(safe-area-inset-right));
-      top: calc(12px + env(safe-area-inset-top));
-      bottom: auto;
-      z-index: 30;
-      display: none;
-      gap: 10px;
-      padding: 10px;
-      border-radius: 22px;
-      background: rgba(10, 18, 30, 0.88);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 22px 44px rgba(4, 9, 18, 0.26);
-      backdrop-filter: blur(14px);
-    }
-    .sticky-cta .btn { flex: 1 1 0; min-width: 0; min-height: 52px; padding-inline: 14px; box-shadow: none; }
+    .sticky-cta { display: none; }
     footer { padding: 28px 0 54px; }
     .footer-note { padding: 16px 18px; border-radius: 22px; background: rgba(255,241,224,0.92); color: var(--boundary-ink); border: 1px solid rgba(86, 52, 10, 0.1); box-shadow: 0 18px 40px rgba(78, 50, 12, 0.08); }
     .footer-note strong { display: block; margin-bottom: 6px; color: var(--base); }
@@ -265,11 +338,9 @@
       *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     }
     @media (max-width: 980px) {
-      body { padding-top: 92px; }
       .hero, .hero-grid, .proof-board, .coverage-grid-shell, .stacked-shell { grid-template-columns: 1fr; }
       .hero-copy, .hero-copy.wide, .visual-shell, .hero-grid, .console-shell, .proof-board, .coverage-grid-shell, .stacked-shell { grid-column: span 12; }
       .signal-strip, .intent-grid, .evidence-grid { grid-template-columns: 1fr; }
-      .sticky-cta { display: flex; }
       h1 { max-width: 14ch; }
     }
     @media (max-width: 640px) {
@@ -297,20 +368,18 @@
     </style>
   </head>
   <body data-argus-el2-marker='ARGUS-EL2-cc5d4a64086a'>
-    <div class='boundary-rail'>
-      <svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-shield' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3 5 6v5c0 4.6 2.8 8.7 7 10 4.2-1.3 7-5.4 7-10V6Z'/></svg><strong>Demo concept only — not affiliated with the business, not an official website, no revenue guarantee.</strong>
-    </div>
     <main class='page-shell'>
       
         <section class='hero hero-console'>
           <div class='hero-copy'>
-            <div class='hero-eyebrow'>Plumbing discovery concept • Milwaukee, WI • none found</div>
+            <div class='console-kicker'>Plumbing discovery concept • Milwaukee, WI • none found</div>
             <h1>Turn listing-first discovery into a faster call path for Fixer Plumbing, Sewer and Drain Cleaning.</h1>
             <p class='hero-subtitle'>A small standalone page for Fixer Plumbing, Sewer and Drain Cleaning could turn scattered public listing details into one clearer path for call, while explaining the business and location more cleanly than Maps/platform-only presence alone. Public facts only — no official affiliation claimed.</p>
             <div class='signal-strip'><div class='signal-chip'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><div><span class='signal-label'>Public phone</span><strong>+1 414-455-0579</strong></div></div><div class='signal-chip'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><div><span class='signal-label'>Public address</span><strong>1973 N Farwell Ave, Milwaukee</strong></div></div><div class='signal-chip'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-clock' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 2'/></svg><div><span class='signal-label'>Hours signal</span><strong>open/closing-hours text visible in card</strong></div></div></div>
           </div>
           <div class='console-shell'>
             <div class='console-header'><span>Dispatch clarity</span><span>Milwaukee</span></div>
+            <div class='console-boundary'><div class='boundary-cue boundary-cue-dispatch-console'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-shield' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3 5 6v5c0 4.6 2.8 8.7 7 10 4.2-1.3 7-5.4 7-10V6Z'/></svg><span>Boundary cue</span><strong>Unofficial demo • not affiliated with the business • no guarantee.</strong></div></div>
             <div class='console-body'>
     <div class='visual-shell'>
       
@@ -328,18 +397,20 @@
     </svg>
     
       <div class='visual-card lead-card'>
-        <div class='badge badge-accent'>Unofficial public-facts demo • no lead capture</div>
         <h3>Public signal stack</h3>
         <p>No review text is invented here. Only sourced public signals are surfaced when available.</p>
         <div class='mini-facts'><div class='mini-fact'><span><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg></span><div><small>Public phone</small><strong>+1 414-455-0579</strong></div></div><div class='mini-fact'><span><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg></span><div><small>Public address</small><strong>1973 N Farwell Ave, Milwaukee</strong></div></div><div class='mini-fact'><span><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-clock' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='9'/><path d='M12 7v5l3 2'/></svg></span><div><small>Hours signal</small><strong>open/closing-hours text visible in card</strong></div></div></div>
-        <div class='visual-actions'>
-          <a class='btn btn-primary' href='tel:+14144550579'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><span>Call public number</span></a>
-          <a class='btn btn-secondary' href='https://www.google.com/maps/place/Fixer+Plumbing,+Sewer+and+Drain+Cleaning/data=!4m7!3m6!1s0x880518e73169729b:0x96a9862a5cc75ff2!8m2!3d43.0567778!4d-87.8890124!16s%2Fg%2F1w0r0h0c!19sChIJm3JpMecYBYgR8l_HXCqGqZY?hl=iw&amp;rclk=1'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><span>Open map listing</span></a>
-        </div>
       </div>
     </div>
     </div>
-            <div class='hero-actions'><a class='btn btn-primary' href='tel:+14144550579'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><span>Call public number</span></a><a class='btn btn-secondary' href='https://www.google.com/maps/place/Fixer+Plumbing,+Sewer+and+Drain+Cleaning/data=!4m7!3m6!1s0x880518e73169729b:0x96a9862a5cc75ff2!8m2!3d43.0567778!4d-87.8890124!16s%2Fg%2F1w0r0h0c!19sChIJm3JpMecYBYgR8l_HXCqGqZY?hl=iw&amp;rclk=1'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><span>Open map listing</span></a></div>
+            <div class='console-actions'>
+    <div class='shell-card cta-panel'>
+      <span class='cta-panel-kicker'>Fastest next action</span>
+      <p>A small standalone page for Fixer Plumbing, Sewer and Drain Cleaning could turn scattered public listing details into one clearer path for call, while explaining the business and location more cleanly than Maps/platform-only presence alone.</p>
+      <div class='hero-actions hero-actions-compact'><a class='btn btn-primary' href='tel:+14144550579'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><span>Call public number</span></a><a class='btn btn-secondary' href='https://www.google.com/maps/place/Fixer+Plumbing,+Sewer+and+Drain+Cleaning/data=!4m7!3m6!1s0x880518e73169729b:0x96a9862a5cc75ff2!8m2!3d43.0567778!4d-87.8890124!16s%2Fg%2F1w0r0h0c!19sChIJm3JpMecYBYgR8l_HXCqGqZY?hl=iw&amp;rclk=1'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><span>Open map listing</span></a></div>
+      
+    </div>
+    </div>
           </div>
         </section>
         
@@ -390,12 +461,11 @@
           <a class='btn btn-primary' href='tel:+14144550579'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><span>Call public number</span></a>
           <a class='btn btn-secondary' href='https://www.google.com/maps/place/Fixer+Plumbing,+Sewer+and+Drain+Cleaning/data=!4m7!3m6!1s0x880518e73169729b:0x96a9862a5cc75ff2!8m2!3d43.0567778!4d-87.8890124!16s%2Fg%2F1w0r0h0c!19sChIJm3JpMecYBYgR8l_HXCqGqZY?hl=iw&amp;rclk=1'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><span>Open map listing</span></a>
         </div>
-        <div class='boundary-note'>Demo concept only — not affiliated with the business, not an official website, no revenue guarantee.</div>
       </div>
     </section>
     
     </main>
-    <div class='sticky-cta'><a class='btn btn-primary' href='tel:+14144550579'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-phone' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M6.6 2h3.1l1.2 4.8-1.8 1.8a17 17 0 0 0 6.5 6.5l1.8-1.8 4.8 1.2v3.1A2.6 2.6 0 0 1 19.6 22C9.9 22 2 14.1 2 4.4A2.6 2.6 0 0 1 4.4 2Z'/></svg><span>Call</span></a><a class='btn btn-secondary' href='https://www.google.com/maps/place/Fixer+Plumbing,+Sewer+and+Drain+Cleaning/data=!4m7!3m6!1s0x880518e73169729b:0x96a9862a5cc75ff2!8m2!3d43.0567778!4d-87.8890124!16s%2Fg%2F1w0r0h0c!19sChIJm3JpMecYBYgR8l_HXCqGqZY?hl=iw&amp;rclk=1'><svg viewBox='0 0 24 24' aria-hidden='true' class='icon icon-map' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 21s7-5.8 7-11a7 7 0 1 0-14 0c0 5.2 7 11 7 11Z'/><circle cx='12' cy='10' r='2.5'/></svg><span>Map</span></a></div>
+    
     <footer>
       <div class='page-shell'>
         <div class='footer-note'>
